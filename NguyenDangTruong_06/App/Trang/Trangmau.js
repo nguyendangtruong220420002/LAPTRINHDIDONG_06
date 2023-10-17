@@ -1,42 +1,94 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Image } from 'react-native';
-import React, { useState } from "react";
-import { StarsRating } from 'react-simple-star-rating'
 
+import { StyleSheet, Text, View,Image, Pressable } from 'react-native';
+import React from "react";
 
-const Trang1 = () => {
-
-    /*const[sao, setSao] = useState(0);
-    <View>
-         <StarsRating style={styles.rang}
-          value={sao}
-          onChange={value =>{setSao}}
-          />
-         </View>*/
+const Trangmau =({navigetion}) => {
     
     return ( 
         <View style = { styles.container } >
-          <Image style={styles.IMGlon}
-          source={require("./../../../NguyenDangTruong_06/App/Anh/xanh.png")}></Image>
-          <Text style={ styles.text }>Điện Thoại Vsmart Joy 3 - Hàng chính hãng</Text>
-          <View style={styles.DG}>
-            <Text style={styles.text }>(Xem 828 đánh giá)</Text>
-          </View>
-          <View style={styles.gia }>
-          <Text style={styles.textp}>1.790.000 đ</Text>
-          <Text style={styles.textl}>1.790.000 đ</Text>
-          </View>
-            <View style={styles.gia2}>
-                <Text style={styles.text2}>Ở ĐÂU RẺ HƠN HOÀN TIỀN</Text>
-                <Image style={styles.hoi}
-                source={require("./../../../NguyenDangTruong_06/App/Anh/dauhoi.jpg")}
-                ></Image>
-            </View>
-         
+            <Text style={styles.text1}>haha </Text>
+            <Text style={styles.text2}>Chọn một màu bên dưới: </Text>
+            <Pressable style={styles.pb1}
+                    onPress={()=> navigetion.goBack()}>
+            </Pressable>
+            <Pressable style={styles.pb2}
+                    onPress={()=> navigetion.goBack()}>
+            </Pressable>
+            <Pressable style={styles.pb3}
+                    onPress={()=> navigetion.goBack()}>
+            </Pressable>
+            <Pressable style={styles.pb4}
+                    onPress={()=> navigetion.goBack()}>
+            </Pressable>
+            <Pressable style={styles.pbXong}
+            onPress={()=> navigetion.goBack()}
+                    ><Text style={styles.textpd1}>XONG</Text>
+               </Pressable>
+               
+      
             </View>
     );
 }
 const styles = StyleSheet.create({
+  container:{
+      flex:1,
+      backgroundColor:'#C4C4C4'
+  
+  },
+  text1:{
+    backgroundColor:'white',
+    height:150
+    
+},
+  text2:{
+    fontSize:20,
+    fontWeight:'bold'
+  },
+  pb1:{
+    backgroundColor:'#C5F1FB',
+    width:70,
+    height:70,
+    left:150,
+    marginTop:10
+  },
+  pb2:{
+    backgroundColor:'#F30D0D',
+    width:70,
+    height:70,
+    left:150,
+    marginTop:20
+  },
+  pb3:{
+    backgroundColor:'black',
+    width:70,
+    height:70,
+    left:150,
+    marginTop:20
+  },
+  pb4:{
+    backgroundColor:'#234896',
+    width:70,
+    height:70,
+    left:150,
+    marginTop:20
+  },
+  
+  pbXong:{
+    borderRadius: 10,
+    backgroundColor:'#1952E294',
+    borderWidth :1,
+    width:350,
+    height:60,
+    left:20,
+    top:30
+  },
+  textpd1:{
+   top:10,
+   fontSize:25,
+   left:135,
+   fontWeight:'bold',
+   color:'#F9F2F2'
+  }
    
 });
-export default Trang1;
+export default Trangmau;
