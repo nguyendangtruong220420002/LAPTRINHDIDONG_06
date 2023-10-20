@@ -1,17 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image,Pressable, } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 
-import React, { useState ,} from 'react';
+import React,{ useState, useEffect }  from 'react';
 
-const Trang1 = ( {navigation}) => {
+const Trang1 = () => {
+     const navigation = useNavigation();
+     const handleChoose = () => {
+    navigation.navigate("Trangmau", { color },{ name });
+  };
+ 
     
     return ( 
         <View style = { styles.container } >
                <Image style={styles.IMGlon}
+               
                     source={require("./../../../NguyenDangTruong_06/App/Anh/xanh.png")}>
 
-               </Image>
+               </Image>  
                     <Text style={ styles.text }>Điện Thoại Vsmart Joy 3 - Hàng chính hãng</Text>
                <View style={styles.DG}>
                     <Text style={styles.text }>(Xem 828 đánh giá)</Text>
@@ -27,12 +34,13 @@ const Trang1 = ( {navigation}) => {
                     ></Image>
                </View>
                <Pressable style={styles.pb}
-                         onPress={ ()=> navigation.navigate('Trangmau')}
+                         onPress={() => handleChoose()}
                     ><Text style={styles.textpd}>4 MÀU-CHỌN MÀU</Text>
                
                </Pressable>
                <Pressable style={styles.pb1}
-                    ><Text style={styles.textpd1}>CHỌN MUA</Text>
+                    ><Text style={styles.textpd1}
+                    onPress={() => alert('Xác nhận mua thành công!!!')}>CHỌN MUA</Text>
                </Pressable>
          
           </View>

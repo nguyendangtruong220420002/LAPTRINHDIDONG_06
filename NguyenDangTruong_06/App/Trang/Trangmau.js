@@ -1,27 +1,62 @@
 
 import { StyleSheet, Text, View,Image, Pressable } from 'react-native';
 import React from "react";
-
-const Trangmau =({navigetion}) => {
+import {useNavigation, useRotue} from '@react-navigation/native';
+import phoneList from '../Data/data';
+const Trangmau =() => {
+  const navigation = useNavigation();
+  const rotue = useRotue();
+  const handleColor = () => {
+      navigation.navigate({
+        name:"Home",
+        params : { color: rotue.params.color },
+        merge : true,
+      });
+  };
     
     return ( 
         <View style = { styles.container } >
-            <Text style={styles.text1}>haha </Text>
+              <View>
+              <Image style={styles.IMG} 
+                    source={require("./../../../NguyenDangTruong_06/App/Anh/$ {(rotue.params.color")}>
+              </Image>
+              <Text style={styles.text1}>{rotue.params.name}</Text>
+            <Text style={styles.text1}>Điện Thoại Vsmart Joy 3 Hàng chính hãng   </Text>
+              </View>
+            
             <Text style={styles.text2}>Chọn một màu bên dưới: </Text>
             <Pressable style={styles.pb1}
-                    onPress={()=> navigetion.goBack()}>
+                    onPress={()=> navigation.setParams(
+                      ((rotue.params.color = phoneList[0].imageLocal)),
+                      ((rotue.params.name = phoneList[0].name))
+                    )
+                    }
+                    key="silver"
+                    >
             </Pressable>
             <Pressable style={styles.pb2}
-                    onPress={()=> navigetion.goBack()}>
+                    onPress={()=> navigation.setParams(
+                      ((rotue.params.color = phoneList[1].imageLocal)),
+                      ((rotue.params.name = phoneList[1].name))
+                    )
+                    }>
             </Pressable>
             <Pressable style={styles.pb3}
-                    onPress={()=> navigetion.goBack()}>
+                    onPress={()=> navigation.setParams(
+                      ((rotue.params.color = phoneList[2].imageLocal)),
+                      ((rotue.params.name = phoneList[2].name))
+                    )
+                    }>
             </Pressable>
             <Pressable style={styles.pb4}
-                    onPress={()=> navigetion.goBack()}>
+                    onPress={()=> navigation.setParams(
+                      ((rotue.params.color = phoneList[3].imageLocal)),
+                      ((rotue.params.name = phoneList[3].name))
+                    )
+                    }>
             </Pressable>
             <Pressable style={styles.pbXong}
-            onPress={()=> navigetion.goBack()}
+            onPress={()=> navigation.goBack()}
                     ><Text style={styles.textpd1}>XONG</Text>
                </Pressable>
                
